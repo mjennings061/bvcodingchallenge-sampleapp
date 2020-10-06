@@ -1,0 +1,12 @@
+/* HINT: Add more styles here! */
+body {
+    border-top: 0.75rem solid #002e6e;
+}
+
+.bg-navy {
+    background: #002e6e;
+}
+
+.text-radical-red {
+    color: #ff4b78;
+}
