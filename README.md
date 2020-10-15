@@ -65,8 +65,9 @@ docker-compose down
 - Password: password
 - Database: uu_code_challenge
 
-**Dataset**
-Inside the database, there is one table. Each row in the table contains the following attributes which you can use to produce your statistics:
+#### Dataset
+
+Inside the database, there is one table named `reviews`. Each row in the table contains the following attributes which you can use to produce your statistics:
 - id: The reviews ID.
 - brewery_id: the ID of the brewery.
 - brewery_name: The name of the beers producing access.
