@@ -27,6 +27,7 @@ class StatsHelper():
         review_palate = self.database.fetch_one("SELECT AVG(review_palate) FROM reviews")
         review_taste = self.database.fetch_one("SELECT AVG(review_taste) FROM reviews")
         beer_abv = self.database.fetch_one("SELECT AVG(beer_abv) FROM reviews")
+        # Obvious type cast error below :( Tuple = bad juju
         result = [
             ['Overall', review_overall],
             ['Aroma', review_aroma],
@@ -35,6 +36,5 @@ class StatsHelper():
             ['Taste', review_taste],
             ['ABV', beer_abv],
         ]
-        print(result[0][1])
         return result
 
