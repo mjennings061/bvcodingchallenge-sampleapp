@@ -57,22 +57,24 @@
           <div class="container bg-light py-3">
               <div class="row">
                   <div class="col-xs-12 px-3">
-                      <h5 class="mb-3">Beer Ratings &amp; Reviews</h5>
+                      <h5 class="mb-3">At a glance</h5>
                   </div>
               </div>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                   <!-- HINT: You may want to look at Jinja loops - https://jinja.palletsprojects.com/en/2.11.x/templates/#list-of-control-structures -->
-                  <div class="col d-flex align-items-stretch mb-3">
-                    <!-- HINT: Bootstrap cards! - https://getbootstrap.com/docs/4.5/components/card/ -->
-                    <div class="card shadow rounded">
-                        <div class="card-body d-flex flex-column">
-                            <h6 class="card-subtitle mb-2 h6 text-radical-red text-uppercase">Stat Title</h6>
-                            <h4 class="card-title display-4">100%</h4>
-                            <h5 class="mb-5">Stat sub title</h5>
-                            <p class="card-text text-muted mt-auto">Stat footnote</p>
-                        </div>
-                    </div>
-                  </div>
+                  {% for average in averages %}
+                      <div class="col d-flex align-items-stretch mb-3">
+                        <!-- HINT: Bootstrap cards! - https://getbootstrap.com/docs/4.5/components/card/ -->
+                            <div class="card shadow rounded">
+                                <div class="card-body d-flex flex-column">
+                                    <h6 class="card-subtitle mb-2 h6 text-radical-red text-uppercase">{{ average[0] }}</h6>
+                                    <h4 class="card-title display-4">{{average[1]}}</h4>
+    {#                                <h5 class="mb-5">Subtitle</h5>#}
+    {#                                <p class="card-text text-muted mt-auto">Subtitle</p>#}
+                                </div>
+                            </div>
+                      </div>
+                  {% endfor %}
               </div>
           </div>
       </section>
@@ -81,26 +83,68 @@
           <div class="container-xl bg-light">
               <div class="row">
                   <div class="col p-3">
-                      <h5 class="mb-3">Beers by overall average</h5>
+                      <h5 class="mb-3">Beers by overall taste</h5>
                       <div class="table-responsive">
                         <!-- HINT: Bootstrap tables - https://getbootstrap.com/docs/4.5/content/tables/ -->
                         <table class="table table-striped bg-white">
                           <thead>
                           <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Beer</th>
+                            <th scope="col">Brewery</th>
+                            <th scope="col">Style</th>
+                            <th scope="col">Taste Review</th>
                           </tr>
                           </thead>
                           <tbody>
                           <!-- HINT: Jinja loops may also work well here! -->
+                          {% for beer in beers_top5_taste %}
+                              <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ beer[-3] }}</td>
+                                <td>{{ beer[2] }}</td>
+                                <td>{{ beer[8] }}</td>
+                                <td>{{ beer[-4] }}</td>
+                              </tr>
+                          {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+    <section class="mb-5">
+          <div class="container-xl bg-light">
+              <div class="row">
+                  <div class="col p-3">
+                      <h5 class="mb-3">Lowest Rated Beers</h5>
+                      <div class="table-responsive">
+                        <!-- HINT: Bootstrap tables - https://getbootstrap.com/docs/4.5/content/tables/ -->
+                        <table class="table table-striped bg-white">
+                          <thead>
                           <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="col">#</th>
+                            <th scope="col">Beer</th>
+                            <th scope="col">Brewery</th>
+                            <th scope="col">Style</th>
+                            <th scope="col">Taste Review</th>
+                            <th scope="col">Average Rating</th>
                           </tr>
+                          </thead>
+                          <tbody>
+                          <!-- HINT: Jinja loops may also work well here! -->
+                          {% for beer in beers_bottom5_taste %}
+                              <tr>
+                                <th scope="row">{{ loop.index }}</th>
+                                <td>{{ beer[-3] }}</td>
+                                <td>{{ beer[2] }}</td>
+                                <td>{{ beer[8] }}</td>
+                                <td>{{ beer[-4] }}</td>
+                                <td>{{ beer[4] }}</td>
+                              </tr>
+                          {% endfor %}
                           </tbody>
                         </table>
                       </div>
