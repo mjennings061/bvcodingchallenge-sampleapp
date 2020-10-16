@@ -12,13 +12,13 @@ class Database:
         )
         self.cursor = self.con.cursor()
 
-    def fetch_all(self, query_sql):
+    def fetch_all(self, query_sql):     # fetch all rows as a list of tuples
         self.cursor.execute(query_sql)
         result = self.cursor.fetchall()
         self.con.commit()
         return result
 
-    def fetch_one(self, query_sql):
+    def fetch_one(self, query_sql):     # fetch one rows as a list of tuples
         self.cursor.execute(query_sql)
         result = self.cursor.fetchone()
         self.con.commit()
