@@ -9,14 +9,14 @@ stats_helper = StatsHelper()
 @app.route('/')
 def homepage():
     # HINT: Pass variables through to the HTML using Flask - https://flask.palletsprojects.com/en/1.1.x/quickstart/#rendering-templates
-    overall_avg = get_average_overall_rating()
+    averages = stats_helper.calculate_averages()
     beers_top5_taste = stats_helper.top_five_by_taste()
     beers_bottom5_taste = stats_helper.bottom_five_by_overall()
 
     return render_template(
         'index.html',
         todays_date=datetime.now(),
-        overall_avg=overall_avg,
+        averages=averages,
         beers_top5_taste=beers_top5_taste,
         beers_bottom5_taste=beers_bottom5_taste,
     )
