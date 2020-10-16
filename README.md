@@ -20,10 +20,11 @@ You should have been provided with the "Get ready guide!" before the session. Yo
 
 #### Fork the project repo
 
-Once logged into your GitHub account, go to https://github.com/bazaarvoice/bvcodingchallenge-sampleapp and fork the repo by click the "Fork" button at the top right of the page.
+Once logged into your GitHub account, fork this repo by clicking the "Fork" button at the top right of the page. This will create a version of the repo on your Github account.
 
 #### Clone the project repo
 
+You can now clone the repo in your Github account which you have just forked. The terminal command to clone the repo will be something like this.
 ```bash
 git clone git@github.com:{YOUR-GITHUB-USERNAME}/bvcodingchallenge-sampleapp.git
 ```
